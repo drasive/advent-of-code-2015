@@ -4,7 +4,7 @@
 // 
 // He begins by delivering a present to the house at his starting location, and
 // then an elf at the North Pole calls him via radio and tells him where to move
-// next. Moves are always exactly one house to the north (`^`), south (`v`), 
+// next. Moves are always exactly one house to the north (`^`), south (`v`),
 // east (`>`), or west (`<`). After each move, he delivers another present to
 // the house at his new location.
 // 
@@ -22,7 +22,7 @@
 //
 // # Part Two
 // 
-// The elves are also running low on ribbon. Ribbon is all the same width, so 
+// The elves are also running low on ribbon. Ribbon is all the same width, so
 // they only have to worry about the length they need to order, which they would
 // again like to be exact.
 // 
