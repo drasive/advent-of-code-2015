@@ -56,8 +56,8 @@ open System
 open System.Text.RegularExpressions 
 
 
-let private CalculateWrappingPaper
-    (length : int) (width : int) (height : int) : int =
+let private CalculateWrappingPaper (length : int) (width : int) (height : int)
+    : int =
     let side1 = length * width
     let side2 = width * height
     let side3 = height * length
@@ -82,22 +82,22 @@ let Solve (input: string) : (int * int) =
     let mutable ribbon = 0
 
     input.Split('\n')
-        |> Seq.filter(fun line ->
-            // Ignore any other lines
-            Regex.IsMatch(line, @"^([\d])+x([\d])+x([\d])+$"))
-        |> Seq.iter (fun line ->
-            // Parse values
-            let values = line.Split('x')
+    |> Seq.filter(fun line ->
+        // Ignore any other lines
+        Regex.IsMatch(line, @"^([\d])+x([\d])+x([\d])+$"))
+    |> Seq.iter (fun line ->
+        // Parse values
+        let values = line.Split('x')
 
-            let length = values.[0] |> Int32.Parse
-            let width  = values.[1] |> Int32.Parse
-            let height = values.[2] |> Int32.Parse
+        let length = values.[0] |> Int32.Parse
+        let width  = values.[1] |> Int32.Parse
+        let height = values.[2] |> Int32.Parse
 
-            // Calculate 
-            wrappingPaper <-
-                wrappingPaper + (CalculateWrappingPaper length width height)
-            ribbon <-
-                ribbon + (CalculateRibbon length width height))
+        // Calculate 
+        wrappingPaper <-
+            wrappingPaper + (CalculateWrappingPaper length width height)
+        ribbon <-
+            ribbon + (CalculateRibbon length width height))
     
     (wrappingPaper, ribbon)          
 

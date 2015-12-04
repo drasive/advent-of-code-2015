@@ -49,11 +49,12 @@ let private HasMD5SixLeadingZeroes (hash : byte[]) : bool =
     && hash.[1] = (byte)0x00 // Characters 3 and 4 are "0" (zero)
     && hash.[2] = (byte)0x00 // Characters 5 and 6 are "0" (zero)
 
-let private MD5HashToHex (hash : byte[]) : string =
-    let stringBuilder = new System.Text.StringBuilder()
-    for hashIndex = 0 to hash.Length - 1 do
-        stringBuilder.Append(hash.[hashIndex].ToString("x2")) |> ignore
-    stringBuilder.ToString();
+let private findHashAddition (input : string)
+    (validationFunction : (byte[] -> bool)) (startingNumber : int) : int =
+    Seq.initInfinite(fun n -> n + startingNumber)
+    |> Seq.find(fun n ->
+        let hash = ComputeMD5Hash (input + n.ToString())
+        validationFunction hash)
 
 
 let Solve (input: string) : (int * int) =
@@ -61,25 +62,23 @@ let Solve (input: string) : (int * int) =
         raise (ArgumentNullException "input")
 
     let fiveZerosNumber =
-        Seq.initInfinite(fun i -> i)
-        |> Seq.find(fun i ->
-            let hash = ComputeMD5Hash (input + i.ToString())
-            HasMD5FiveLeadingZeroes hash)
+        findHashAddition input HasMD5FiveLeadingZeroes 0
     let sixZerosNumber =
-        Seq.initInfinite(fun i ->
-            // Continue from previous index
-            i + fiveZerosNumber)
-        |> Seq.find(fun i ->
-            let hash = ComputeMD5Hash (input + i.ToString())
-            HasMD5SixLeadingZeroes hash)
+        findHashAddition input HasMD5SixLeadingZeroes fiveZerosNumber
 
     (fiveZerosNumber, sixZerosNumber)
 
 let FormatResult (input : string) (result : (int * int)) : string =
+    let MD5HashToHexString (hash : byte[]) : string =
+        let stringBuilder = new System.Text.StringBuilder()
+        for hashIndex = 0 to hash.Length - 1 do
+            stringBuilder.Append(hash.[hashIndex].ToString("x2")) |> ignore
+        stringBuilder.ToString();
+
     let fiveZerosHash = ComputeMD5Hash (input + (fst result).ToString())
     let sixZerosHash = ComputeMD5Hash (input + (snd result).ToString())
 
     String.Format("5 leading zeros: {0} (hash {1})\n" +
                   "6 leading zeros: {2} (hash {3})",
-                  fst result, MD5HashToHex fiveZerosHash,
-                  snd result, MD5HashToHex sixZerosHash)
+                  fst result, MD5HashToHexString fiveZerosHash,
+                  snd result, MD5HashToHexString sixZerosHash)

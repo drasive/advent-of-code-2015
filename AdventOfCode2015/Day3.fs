@@ -54,57 +54,37 @@ open System
 open System.Collections.Generic
 
 
-type Deliverer() =
-    member val positionX = 0 with get, set
-    member val positionY = 0 with get, set
+type private Deliverer() =
+    member val location = (0, 0) with get, set
+    
+    static member UpdatedLocation (location : (int * int)) (instruction : char)
+        : (int * int) =
+        let x = fst location
+        let y = snd location
 
-    // TODO: Removed side effects?
-    member this.UpdateLocation (instruction : char) : unit =
         match instruction with
-        | '<' -> this.positionX <- this.positionX - 1
-        | '^' -> this.positionY <- this.positionY + 1
-        | '>' -> this.positionX <- this.positionX + 1
-        | 'v' -> this.positionY <- this.positionY - 1
-        | _ -> () // Ignore any other characters
+        | '<' -> (x - 1, y)
+        | '>' -> (x + 1, y)
+        | '^' -> (x, y + 1)
+        | 'v' -> (x, y - 1)
+        | _ -> (x, y) // Ignore any other characters
 
-let CalculateSantaOnly (input : string) : int =
+let private CalculateHousesVisited (input : string) (deliverers : Deliverer[]) =
     let housesVisited = new Dictionary<(int * int), int>()
-    let santa = new Deliverer()
 
-     // Starting house is always visited
-    housesVisited.Add((0, 0), 1)
+    // Starting house is always visited by all deliverers
+    housesVisited.Add((0, 0), deliverers.Length)
 
     for index = 0 to input.Length - 1 do
-        // Update location
+        // Deliverers take instructions in turns
+        let deliverer = deliverers.[index % deliverers.Length]
+
+        // Update deliverer location
         let instruction = input.[index]
-        santa.UpdateLocation instruction
+        deliverer.location <- Deliverer.UpdatedLocation deliverer.location instruction
 
         // Update house visits
-        let key = (santa.positionX, santa.positionY)
-        if housesVisited.ContainsKey(key) then
-            housesVisited.Item(key) <- housesVisited.Item(key) + 1
-        else
-            housesVisited.Add(key, 1)
-
-    housesVisited.Count
-
-let CalculateSantaAndRoboSanta (input : string) : int =
-    let housesVisited = new Dictionary<(int * int), int>()
-    let santa = new Deliverer()
-    let roboSanta = new Deliverer()
-
-     // Starting house is always visited (by all santas)
-    housesVisited.Add((0, 0), 2)
-
-    for index = 0 to input.Length - 1 do
-        // Update location
-        let instruction = input.[index]
-
-        let deliverer = if index % 2 = 0 then santa else roboSanta
-        deliverer.UpdateLocation instruction
-
-        // Update house visits
-        let key = (deliverer.positionX, deliverer.positionY)
+        let key = deliverer.location
         if housesVisited.ContainsKey(key) then
             housesVisited.Item(key) <- housesVisited.Item(key) + 1
         else
@@ -116,9 +96,13 @@ let CalculateSantaAndRoboSanta (input : string) : int =
 let Solve (input: string) : (int * int) =
     if input = null then
         raise (ArgumentNullException "input")
+    
+    let santa = new Deliverer()
+    let resultSantaOnly = CalculateHousesVisited input [|santa|] 
 
-    let resultSantaOnly = CalculateSantaOnly input
-    let resultSantaAndRoboSanta = CalculateSantaAndRoboSanta input
+    let santa = new Deliverer()
+    let roboSanta = new Deliverer()
+    let resultSantaAndRoboSanta = CalculateHousesVisited input [|santa;roboSanta|] 
     
     (resultSantaOnly, resultSantaAndRoboSanta)
 
