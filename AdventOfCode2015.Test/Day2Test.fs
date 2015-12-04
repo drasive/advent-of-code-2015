@@ -26,7 +26,7 @@ let MyInput_Correct() =
     let filePath =
         Path.GetFullPath(
             System.AppDomain.CurrentDomain.BaseDirectory
-            + ConfigurationManager.AppSettings.Item("relativeDataDirectory")
+            + ConfigurationManager.AppSettings.Item("relativeInputDirectory")
             + @"\day2.txt")
     let input = File.ReadAllText(filePath)
 
