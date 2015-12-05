@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Debug\AdventOfCode2015.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>--day 4 --file "..\..\input\day4.txt" --verbose</StartArguments>
+    <StartArguments>--day 5 --file "..\..\input\day5.txt" --verbose</StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,7 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Release\AdventOfCode2015.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>--day 4 --file "..\..\input\day4.txt" --verbose</StartArguments>
+    <StartArguments>--day 5 --file "..\..\input\day5.txt" --verbose</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
@@ -62,6 +62,7 @@
     <Compile Include="Day2.fs" />
     <Compile Include="Day3.fs" />
     <Compile Include="Day4.fs" />
+    <Compile Include="Day5.fs" />
     <Compile Include="Logger.fs" />
     <Compile Include="Options.fs" />
     <Compile Include="Program.fs" />
