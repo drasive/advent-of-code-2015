@@ -47,7 +47,8 @@
 // 
 // Source: http://adventofcode.com/day/2, 2015-12-02
 // 
-// Personal day 2 goal: Use more F#-style syntax, improve application parameters
+// Personal day 2 goal: Use more F#-style syntax,
+//                      improve command line parameters
 
 
 module DimitriVranken.AdventOfCode2015.Day2
@@ -74,7 +75,7 @@ let private CalculateRibbon (length : int) (width : int) (height : int) : int =
     volume + perimeter
 
 
-let Solve (input: string) : (int * int) =
+let Solution (input: string) : (int * int) =
     if input = null then
         raise (ArgumentNullException "input")
 
@@ -101,7 +102,7 @@ let Solve (input: string) : (int * int) =
     
     (wrappingPaper, ribbon)          
 
-let FormatResult (result : (int * int)) : string =
+let FormattedResult (result : (int * int)) : string =
     String.Format("Wrapping paper: {0}\n" +
                   "Ribbon: {1}",
                   fst result, snd result)

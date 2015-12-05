@@ -52,12 +52,12 @@ let private HasMD5SixLeadingZeroes (hash : byte[]) : bool =
 let private findHashAddition (input : string)
     (validationFunction : (byte[] -> bool)) (startingNumber : int) : int =
     Seq.initInfinite(fun n -> n + startingNumber)
-    |> Seq.find(fun n ->
+    |> Seq.find(fun n -> // TODO: Use parallelism
         let hash = ComputeMD5Hash (input + n.ToString())
         validationFunction hash)
 
 
-let Solve (input: string) : (int * int) =
+let Solution (input: string) : (int * int) =
     if input = null then
         raise (ArgumentNullException "input")
 
@@ -68,7 +68,7 @@ let Solve (input: string) : (int * int) =
 
     (fiveZerosNumber, sixZerosNumber)
 
-let FormatResult (input : string) (result : (int * int)) : string =
+let FormattedResult (input : string) (result : (int * int)) : string =
     let MD5HashToHexString (hash : byte[]) : string =
         let stringBuilder = new System.Text.StringBuilder()
         for hashIndex = 0 to hash.Length - 1 do

@@ -39,7 +39,7 @@
 // 
 // Source: http://adventofcode.com/day/1, 2015-12-01
 //
-// Personal day 1 goal: Get F# application running, use application parameters
+// Personal day 1 goal: Get F# application running, use command line parameters
 
 
 module DimitriVranken.AdventOfCode2015.Day1
@@ -47,7 +47,7 @@ module DimitriVranken.AdventOfCode2015.Day1
 open System
 
 
-let Solve (input : string) : (int * Option<int>) =
+let Solution (input : string) : (int * Option<int>) =
     if input = null then
         raise (ArgumentNullException "input")
 
@@ -68,7 +68,7 @@ let Solve (input : string) : (int * Option<int>) =
 
     (!floor, if basementEncounter then Some basementEncounterPosition else None)
 
-let FormatResult (result : (int * Option<int>)) : string =
+let FormattedResult (result : (int * Option<int>)) : string =
     let firstBasementEncounter =
         match snd result with
         | Some r -> r.ToString()

@@ -93,7 +93,7 @@ let private CalculateHousesVisited (input : string) (deliverers : Deliverer[]) =
     housesVisited.Count
 
 
-let Solve (input: string) : (int * int) =
+let Solution (input : string) : (int * int) =
     if input = null then
         raise (ArgumentNullException "input")
     
@@ -106,7 +106,7 @@ let Solve (input: string) : (int * int) =
     
     (resultSantaOnly, resultSantaAndRoboSanta)
 
-let FormatResult (result : (int * int)) : string =
+let FormattedResult (result : (int * int)) : string =
     String.Format("Santa alone: {0}\n" +
                   "Santa and Robo-Santa: {1}",
                   fst result, snd result)

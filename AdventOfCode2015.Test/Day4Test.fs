@@ -11,9 +11,9 @@ open DimitriVranken.AdventOfCode2015
 
 [<Fact>]
 let Part1Examples_Correct() =
-    Assert.Equal(609043, fst (Day4.Solve "abcdef"))
+    Assert.Equal(609043, fst (Day4.Solution "abcdef"))
     
-    Assert.Equal(1048970, fst (Day4.Solve "pqrstuv"))
+    Assert.Equal(1048970, fst (Day4.Solution "pqrstuv"))
 
 [<Fact>]
 let MyInput_Correct() =
@@ -24,14 +24,14 @@ let MyInput_Correct() =
             + @"\day4.txt")
     let input = File.ReadAllText(filePath)
 
-    Assert.Equal((282749, 9962624), Day4.Solve input)
+    Assert.Equal((282749, 9962624), Day4.Solution input)
 
-
-[<Fact>]
-let InputEmpty_Correct() =
-    Assert.Equal((1803305, 20412333), Day4.Solve "")
 
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day4.Solve(null) |> ignore)
+        Day4.Solution(null) |> ignore)
+
+[<Fact>]
+let InputEmpty_Correct() =
+    Assert.Equal((1803305, 20412333), Day4.Solution "")

@@ -11,17 +11,17 @@ open DimitriVranken.AdventOfCode2015
 
 [<Fact>]
 let Part1Examples_Correct() =
-    Assert.Equal(2, fst (Day3.Solve ">"))
+    Assert.Equal(2, fst (Day3.Solution ">"))
 
-    Assert.Equal(4, fst (Day3.Solve "^>v<"))
+    Assert.Equal(4, fst (Day3.Solution "^>v<"))
 
-    Assert.Equal(2, fst (Day3.Solve "^v^v^v^v^v"))
+    Assert.Equal(2, fst (Day3.Solution "^v^v^v^v^v"))
 
 [<Fact>]
 let Part2Examples_Correct() =
-    Assert.Equal(3, snd (Day3.Solve "^v"))
+    Assert.Equal(3, snd (Day3.Solution "^v"))
 
-    Assert.Equal(11, snd (Day3.Solve "^v^v^v^v^v"))
+    Assert.Equal(11, snd (Day3.Solution "^v^v^v^v^v"))
 
 [<Fact>]
 let MyInput_Correct() =
@@ -32,20 +32,18 @@ let MyInput_Correct() =
             + @"\day3.txt")
     let input = File.ReadAllText(filePath)
 
-    Assert.Equal((2592, 2360), Day3.Solve input)
+    Assert.Equal((2592, 2360), Day3.Solution input)
 
-
-[<Fact>]
-let InputEmpty_1_1() =
-    Assert.Equal((1, 1), (Day3.Solve ""))
 
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day3.Solve(null) |> ignore)
+        Day3.Solution(null) |> ignore)
+
+[<Fact>]
+let InputEmpty_1_1() =
+    Assert.Equal((1, 1), (Day3.Solution ""))
 
 [<Fact>]
 let InputWithComments_Correct() =
-    let input = "Comment^>Tevs<t"
-
-    Assert.Equal(4, fst (Day3.Solve input))
+    Assert.Equal(4, fst (Day3.Solution "Comment^>Tevs<t"))
