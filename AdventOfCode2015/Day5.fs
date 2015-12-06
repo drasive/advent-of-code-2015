@@ -40,7 +40,8 @@
 // - `qjhvhtzxzqqjkmpb` is nice because is has a pair that appears twice (`qj`)
 //   and a letter that repeats with exactly one letter between them (`zxz`).
 // - `xxyxx` is nice because it has a pair that appears twice and a letter that
-//   repeats with one between, even though the letters used by each rule overlap.
+//   repeats with one between, even though the letters used by each rule
+//   overlap.
 // - `uurcxstgmygtbstg` is naughty because it has a pair (`tg`) but no repeat
 //   with a single letter between them.
 // - `ieodomkazucvgmuy` is naughty because it has a repeating letter with one
@@ -63,7 +64,6 @@ open System.Text.RegularExpressions
 let IsStringNiceRuleSet1 (string : string) : bool =
         // It contains at least three vowels
         let containsVowel (str : string) : bool =
-            
             let vowels = ['a';'e';'i';'o';'u'] |> Set.ofList
             
             str
