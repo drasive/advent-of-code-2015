@@ -61,15 +61,14 @@ open System
 open System.Text.RegularExpressions 
 
 
-let IsStringNiceRuleSet1 (string : string) : bool =
+let private IsStringNiceRuleSet1 (string : string) : bool =
         // It contains at least three vowels
         let containsVowel (str : string) : bool =
             let vowels = ['a';'e';'i';'o';'u'] |> Set.ofList
             
             str
             |> Seq.filter (fun char -> vowels.Contains char)
-            |> Seq.length
-                >= 3
+            |> Seq.length >= 3
 
         // Does not contain the strings `ab`, `cd`, `pq`, or `xy`
         let doesNotContainBadSequence (str : string) : bool =
@@ -88,7 +87,7 @@ let IsStringNiceRuleSet1 (string : string) : bool =
         && doesNotContainBadSequence string
         && containsLetterAppearingTwice string
 
-let IsStringNiceRuleSet2 (string : string) : bool =
+let private IsStringNiceRuleSet2 (string : string) : bool =
     // Contains a pair of any two letters that appears at least twice in the
     // string without overlapping
     let containsTwoLetterPair (str : string) : bool =
@@ -110,16 +109,12 @@ let Solution (input: string) : (int * int) =
         raise (ArgumentNullException "input")
     
     let lines = input.Split('\n')
-    let ruleSet1Solution =
+    let result (ruleSet : (string -> bool)) : int =
         lines
-        |> Seq.filter IsStringNiceRuleSet1
-        |> Seq.length
-    let ruleSet2Solution =
-        lines
-        |> Seq.filter IsStringNiceRuleSet2
+        |> Seq.filter ruleSet
         |> Seq.length
         
-    (ruleSet1Solution, ruleSet2Solution)
+    (result IsStringNiceRuleSet1, result IsStringNiceRuleSet2)
 
 let FormattedResult (result : (int * int)) : string =
     String.Format("Rule set 1: {0}\n" +

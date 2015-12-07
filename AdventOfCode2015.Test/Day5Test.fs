@@ -37,7 +37,7 @@ let MyInput_Correct() =
         Path.GetFullPath(
             System.AppDomain.CurrentDomain.BaseDirectory
             + ConfigurationManager.AppSettings.Item("relativeInputDirectory")
-            + @"\Day5.txt")
+            + @"\day5.txt")
     let input = File.ReadAllText(filePath)
 
     Assert.Equal((238, 69), Day5.Solution input)

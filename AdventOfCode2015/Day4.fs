@@ -49,7 +49,7 @@ let private HasMD5SixLeadingZeroes (hash : byte[]) : bool =
     && hash.[1] = (byte)0x00 // Characters 3 and 4 are "0" (zero)
     && hash.[2] = (byte)0x00 // Characters 5 and 6 are "0" (zero)
 
-let private findHashAddition (input : string)
+let private FindHashAddition (input : string)
     (validationFunction : (byte[] -> bool)) (startingNumber : int) : int =
     Seq.initInfinite(fun n -> n + startingNumber)
     |> Seq.find(fun n -> // TODO: Use parallelism
@@ -62,9 +62,9 @@ let Solution (input: string) : (int * int) =
         raise (ArgumentNullException "input")
 
     let fiveZerosNumber =
-        findHashAddition input HasMD5FiveLeadingZeroes 0
+        FindHashAddition input HasMD5FiveLeadingZeroes 0
     let sixZerosNumber =
-        findHashAddition input HasMD5SixLeadingZeroes fiveZerosNumber
+        FindHashAddition input HasMD5SixLeadingZeroes fiveZerosNumber
 
     (fiveZerosNumber, sixZerosNumber)
 
