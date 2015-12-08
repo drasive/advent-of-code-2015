@@ -37,7 +37,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>bin\Release\AdventOfCode2015.XML</DocumentationFile>
     <Prefer32Bit>true</Prefer32Bit>
-    <StartArguments>--day 6 --file "..\..\input\day6.txt" --verbose</StartArguments>
+    <StartArguments>--day 7 --file "..\..\input\day7.txt" --verbose</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
@@ -64,6 +64,7 @@
     <Compile Include="Day4.fs" />
     <Compile Include="Day5.fs" />
     <Compile Include="Day6.fs" />
+    <Compile Include="Day7.fs" />
     <Compile Include="Logger.fs" />
     <Compile Include="Options.fs" />
     <Compile Include="Program.fs" />
