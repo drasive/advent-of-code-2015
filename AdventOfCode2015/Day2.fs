@@ -102,7 +102,7 @@ let Solution (input: string) : (int * int) =
     
     (wrappingPaper, ribbon)          
 
-let FormattedResult (result : (int * int)) : string =
+let FormattedSolution (solution : (int * int)) : string =
     String.Format("Wrapping paper: {0}\n" +
                   "Ribbon: {1}",
-                  fst result, snd result)
+                  fst solution, snd solution)

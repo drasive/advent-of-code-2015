@@ -68,12 +68,12 @@ let Solution (input : string) : (int * Option<int>) =
 
     (!floor, if basementEncounter then Some basementEncounterPosition else None)
 
-let FormattedResult (result : (int * Option<int>)) : string =
+let FormattedSolution (solution : (int * Option<int>)) : string =
     let firstBasementEncounter =
-        match snd result with
+        match snd solution with
         | Some r -> r.ToString()
         | None -> "-"
 
     String.Format("End floor: {0}\n" +
                   "First basement encounter: {1}",
-                  fst result, firstBasementEncounter)
+                  fst solution, firstBasementEncounter)

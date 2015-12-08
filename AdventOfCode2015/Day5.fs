@@ -109,14 +109,14 @@ let Solution (input: string) : (int * int) =
         raise (ArgumentNullException "input")
     
     let lines = input.Split('\n')
-    let result (ruleSet : (string -> bool)) : int =
+    let solution (ruleSet : (string -> bool)) : int =
         lines
         |> Seq.filter ruleSet
         |> Seq.length
         
-    (result IsStringNiceRuleSet1, result IsStringNiceRuleSet2)
+    (solution IsStringNiceRuleSet1, solution IsStringNiceRuleSet2)
 
-let FormattedResult (result : (int * int)) : string =
+let FormattedSolution (solution : (int * int)) : string =
     String.Format("Rule set 1: {0}\n" +
                   "Rule set 2: {1}",
-                  fst result, snd result)
+                  fst solution, snd solution)

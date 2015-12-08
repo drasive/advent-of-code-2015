@@ -68,17 +68,17 @@ let Solution (input: string) : (int * int) =
 
     (fiveZerosNumber, sixZerosNumber)
 
-let FormattedResult (input : string) (result : (int * int)) : string =
+let FormattedSolution (input : string) (solution : (int * int)) : string =
     let MD5HashToHexString (hash : byte[]) : string =
         let stringBuilder = new System.Text.StringBuilder()
         for hashIndex = 0 to hash.Length - 1 do
             stringBuilder.Append(hash.[hashIndex].ToString("x2")) |> ignore
         stringBuilder.ToString();
 
-    let fiveZerosHash = ComputeMD5Hash (input + (fst result).ToString())
-    let sixZerosHash = ComputeMD5Hash (input + (snd result).ToString())
+    let fiveZerosHash = ComputeMD5Hash (input + (fst solution).ToString())
+    let sixZerosHash = ComputeMD5Hash (input + (snd solution).ToString())
 
     String.Format("5 leading zeros: {0} (hash {1})\n" +
                   "6 leading zeros: {2} (hash {3})",
-                  fst result, MD5HashToHexString fiveZerosHash,
-                  snd result, MD5HashToHexString sixZerosHash)
+                  fst solution, MD5HashToHexString fiveZerosHash,
+                  snd solution, MD5HashToHexString sixZerosHash)

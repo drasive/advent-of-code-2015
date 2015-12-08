@@ -60,7 +60,7 @@
 module DimitriVranken.AdventOfCode2015.Day6
 
 open System
-open System.Text.RegularExpressions 
+open System.Text.RegularExpressions
 
 
 type Coordinates = (int * int)
@@ -121,7 +121,7 @@ let private CalculateLightsOn (lines : string[])
     lights |> Seq.cast<int> |> Seq.sum
 
 
-let Solution (input : string) : Coordinates =
+let Solution (input : string) : (int * int) =
     if input = null then
         raise (ArgumentNullException "input")
 
@@ -133,7 +133,7 @@ let Solution (input : string) : Coordinates =
     else
         (0, 0)
 
-let FormattedResult (result : (int * int)) : string =
+let FormattedSolution (solution : (int * int)) : string =
     String.Format("Rule set 1: {0}\n" +
                   "Rule set 2: {1}",
-                  fst result, snd result)
+                  fst solution, snd solution)

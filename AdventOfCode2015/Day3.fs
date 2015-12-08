@@ -98,15 +98,15 @@ let Solution (input : string) : (int * int) =
         raise (ArgumentNullException "input")
     
     let santa = new Deliverer()
-    let resultSantaOnly = CalculateHousesVisited input [|santa|] 
+    let solutionSantaOnly = CalculateHousesVisited input [|santa|] 
 
     let santa = new Deliverer()
     let roboSanta = new Deliverer()
-    let resultSantaAndRoboSanta = CalculateHousesVisited input [|santa;roboSanta|] 
+    let solutionSantaAndRoboSanta = CalculateHousesVisited input [|santa;roboSanta|] 
     
-    (resultSantaOnly, resultSantaAndRoboSanta)
+    (solutionSantaOnly, solutionSantaAndRoboSanta)
 
-let FormattedResult (result : (int * int)) : string =
+let FormattedSolution (solution : (int * int)) : string =
     String.Format("Santa alone: {0}\n" +
                   "Santa and Robo-Santa: {1}",
-                  fst result, snd result)
+                  fst solution, snd solution)

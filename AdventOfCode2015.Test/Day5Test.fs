@@ -46,7 +46,7 @@ let MyInput_Correct() =
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day5.Solution(null) |> ignore)
+        Day5.Solution null |> ignore)
 
 [<Fact>]
 let InputEmpty_Correct() =
