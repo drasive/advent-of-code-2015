@@ -65,6 +65,7 @@ let main (argv : string[]) : int =
         | 6 -> Day6.FormattedSolution (Day6.Solution input)
         | 7 -> Day7.FormattedSolution (Day7.Solution input)
         | 8 -> Day8.FormattedSolution (Day8.Solution input)
+        | 9 -> Day9.FormattedSolution (Day9.Solution input)
         | _ -> "The solution for this puzzle is not yet implemented"
 
     Logger.Default.Info(solution)
