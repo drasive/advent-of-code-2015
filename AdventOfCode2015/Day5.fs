@@ -98,7 +98,7 @@ let private IsStringNiceRuleSet2 (string : string) : bool =
     let containsRepeatedLetter (str : string) : bool =
         str
         |> Seq.windowed 3
-        |> Seq.exists (fun [|a;b;c|] -> a = c)
+        |> Seq.exists (fun [|a;_;c|] -> a = c)
 
     containsTwoLetterPair string 
     && containsRepeatedLetter string

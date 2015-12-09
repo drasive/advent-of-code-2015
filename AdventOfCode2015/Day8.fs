@@ -60,7 +60,7 @@
 // 
 // Source: http://adventofcode.com/day/8, 2015-12-09
 // 
-// Personal day 8 goal: ?
+// Personal day 8 goal: Short development time
 
 
 module DimitriVranken.AdventOfCode2015.Day8
@@ -100,8 +100,8 @@ let private UnescapedStringMemoryDifference (line : string) : int =
 let private EscapedStringMemoryDifference (line : string) : int =
     let lineLength = line.Length
 
-    let encodedLength = 
-        2 + 
+    let encodedLength =
+        2 +
         (line |> Seq.sumBy(fun char ->
             if char = '\"' || char = '\\' then 2 else 1))
 

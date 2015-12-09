@@ -93,18 +93,6 @@ let private CoordinatesInRange (rangeStart : Coordinates) (rangeEnd : Coordinate
      for y = snd rangeStart to snd rangeEnd do
          yield x, y]
 
-let private ActionMapperRuleSet1 (instructionType) =
-    match instructionType with
-    | TurnOn -> (fun status -> 1)
-    | TurnOff -> (fun status -> 0)
-    | Toggle -> (fun status -> if status = 0 then 1 else 0)
-
-let private ActionMapperRuleSet2 (instructionType) =
-    match instructionType with
-    | TurnOn -> (fun status -> status + 1)
-    | TurnOff -> (fun status -> Math.Max(status - 1, 0))
-    | Toggle -> (fun status -> status + 2)
-
 let private CalculateLightsOn (lines : string[])
     (actionMapper : (InstructionType -> int -> int)) : int = 
     let lights = Array2D.create 1000 1000 0
@@ -119,6 +107,18 @@ let private CalculateLightsOn (lines : string[])
     |> ignore
 
     lights |> Seq.cast<int> |> Seq.sum
+
+let private ActionMapperRuleSet1 (instructionType) =
+    match instructionType with
+    | TurnOn -> (fun status -> 1)
+    | TurnOff -> (fun status -> 0)
+    | Toggle -> (fun status -> if status = 0 then 1 else 0)
+
+let private ActionMapperRuleSet2 (instructionType) =
+    match instructionType with
+    | TurnOn -> (fun status -> status + 1)
+    | TurnOff -> (fun status -> Math.Max(status - 1, 0))
+    | Toggle -> (fun status -> status + 2)
 
 
 let Solution (input : string) : (int * int) =

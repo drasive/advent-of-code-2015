@@ -54,7 +54,7 @@
 // 
 // Source: http://adventofcode.com/day/7, 2015-12-07
 // 
-// Personal day 7 goal: ?
+// Personal day 7 goal: TODO
 
 
 module DimitriVranken.AdventOfCode2015.Day7
