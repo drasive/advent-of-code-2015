@@ -45,6 +45,6 @@ let InputNull_Exception() =
         Day9.Solution null |> ignore)
 
 [<Fact>]
-let InputEmpty_Correct() =
-        Assert.ThrowsAny<ArgumentNullException>(fun() ->
+let InputEmpty_Exception() =
+    Assert.ThrowsAny<ArgumentNullException>(fun() ->
         Day9.Solution "" |> ignore)

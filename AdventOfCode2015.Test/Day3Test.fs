@@ -41,9 +41,5 @@ let InputNull_Exception() =
         Day3.Solution null |> ignore)
 
 [<Fact>]
-let InputEmpty_1_1() =
+let InputEmpty_Correct() =
     Assert.Equal((1, 1), (Day3.Solution ""))
-
-[<Fact>]
-let InputWithComments_Correct() =
-    Assert.Equal(4, fst (Day3.Solution "Comment^>Tevs<t"))

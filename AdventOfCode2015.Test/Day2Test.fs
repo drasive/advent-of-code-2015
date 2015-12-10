@@ -39,12 +39,5 @@ let InputNull_Exception() =
         Day2.Solution null |> ignore)
 
 [<Fact>]
-let InputEmpty_0_0() =
+let InputEmpty_Correct() =
     Assert.Equal((0, 0), Day2.Solution "")
-
-[<Fact>]
-let InputWithComments_Correct() =
-    let input = "Comment\n" +
-                "2x3x4"
-
-    Assert.Equal(58, fst (Day2.Solution input))

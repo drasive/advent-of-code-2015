@@ -170,8 +170,8 @@ let Solution (input : string) : (int * int) =
     input.Split('\n')
     |> Seq.map ParseInstruction
     |> Seq.map (PopulateGraph graph)
-    |> Seq.length // Needed so whole loop doesn't get optimized away (needed for
-    |> ignore     // side effects)
+    |> Seq.length // Needed so whole loop doesn't get optimized away
+    |> ignore     // (needed for side effects)
 
     let shortestRoute =
         [0..graph.Nodes.Count - 1]

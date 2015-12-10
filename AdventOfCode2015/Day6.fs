@@ -100,7 +100,7 @@ let private CalculateLightsOn (lines : string[])
     lines
     |> Seq.map ParseInstruction
     |> Seq.iter (fun (instructionType, coordinatesStart, coordinatesEnd) ->
-        // TODO: Use top-level piping
+        // TODO: How to use top-level piping instead?
         CoordinatesInRange coordinatesStart coordinatesEnd
         |> Seq.iter (fun (x, y) ->
             lights.[x, y] <- (actionMapper instructionType) lights.[x, y]))
