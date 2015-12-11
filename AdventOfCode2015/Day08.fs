@@ -63,7 +63,7 @@
 // Personal day 8 goal: Short development time
 
 
-module DimitriVranken.AdventOfCode2015.Day8
+module DimitriVranken.AdventOfCode2015.Day08
 
 open System
 open System.Text.RegularExpressions

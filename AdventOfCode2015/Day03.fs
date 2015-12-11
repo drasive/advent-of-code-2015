@@ -48,7 +48,7 @@
 // Personal day 3 goal: Use classes, create unit tests
 
 
-module DimitriVranken.AdventOfCode2015.Day3
+module DimitriVranken.AdventOfCode2015.Day03
 
 open System
 open System.Collections.Generic

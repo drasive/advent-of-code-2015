@@ -1,4 +1,4 @@
-﻿module DimitriVranken.AdventOfCode2015.Test.Day7Test
+﻿module DimitriVranken.AdventOfCode2015.Test.Day07Test
 
 open System
 open System.Configuration
@@ -21,7 +21,7 @@ let Part1Examples_Correct() =
         "NOT x -> h\n" +
         "NOT y -> i"
 
-    let solution = Day7.Solution input
+    let solution = Day07.Solution input
 
     // Assert
     Assert.Equal(8, solution.Count)
@@ -40,9 +40,9 @@ let Part1Examples_Correct() =
 
 //[<Fact>]
 //let Part2Examples_Correct() =
-//    Assert.Equal(1, snd (Day6.Solution "turn on 0,0 through 0,0"))
+//    Assert.Equal(1, snd (Day06.Solution "turn on 0,0 through 0,0"))
 //    
-//    Assert.Equal(2000000, snd (Day6.Solution "toggle 0,0 through 999,999"))
+//    Assert.Equal(2000000, snd (Day06.Solution "toggle 0,0 through 999,999"))
 
 [<Fact>]
 let MyInput_Correct() =
@@ -50,10 +50,10 @@ let MyInput_Correct() =
         Path.GetFullPath(
             System.AppDomain.CurrentDomain.BaseDirectory
             + ConfigurationManager.AppSettings.Item("relativeInputDirectory")
-            + @"\day7.txt")
+            + @"\day07.txt")
     let input = File.ReadAllText(filePath)
 
-    let solution = Day7.Solution input
+    let solution = Day07.Solution input
 
     Assert.Equal(0, Convert.ToInt32(solution.Item("a").Value))
 
@@ -61,9 +61,9 @@ let MyInput_Correct() =
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day7.Solution null |> ignore)
+        Day07.Solution null |> ignore)
 
 [<Fact>]
 let InputEmpty_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day7.Solution "" |> ignore)
+        Day07.Solution "" |> ignore)

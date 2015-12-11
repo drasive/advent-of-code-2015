@@ -51,7 +51,7 @@
 //                      improve command line parameters
 
 
-module DimitriVranken.AdventOfCode2015.Day2
+module DimitriVranken.AdventOfCode2015.Day02
 
 open System
 open System.Text.RegularExpressions 

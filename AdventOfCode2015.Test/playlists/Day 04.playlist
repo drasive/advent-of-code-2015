@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="DimitriVranken.AdventOfCode2015.Test.Day04Test.Part1Examples_Correct" /><Add Test="DimitriVranken.AdventOfCode2015.Test.Day04Test.InputEmpty_Correct" /><Add Test="DimitriVranken.AdventOfCode2015.Test.Day04Test.InputNull_Exception" /><Add Test="DimitriVranken.AdventOfCode2015.Test.Day04Test.MyInput_Correct" /></Playlist>

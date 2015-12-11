@@ -27,7 +27,7 @@
 // Personal day 4 goal: Use sequences and parallelism
 
 
-module DimitriVranken.AdventOfCode2015.Day4
+module DimitriVranken.AdventOfCode2015.Day04
 
 open System
 

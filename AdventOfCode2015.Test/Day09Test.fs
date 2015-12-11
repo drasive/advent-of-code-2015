@@ -1,4 +1,4 @@
-﻿module DimitriVranken.AdventOfCode2015.Test.Day9Test
+﻿module DimitriVranken.AdventOfCode2015.Test.Day09Test
 
 open System
 open System.Configuration
@@ -16,7 +16,7 @@ let Part1Examples_Correct() =
         "London to Belfast = 518\n" +
         "Dublin to Belfast = 141"
 
-    Assert.Equal(605, fst (Day9.Solution input))
+    Assert.Equal(605, fst (Day09.Solution input))
 
 [<Fact>]
 let Part2Examples_Correct() =
@@ -25,7 +25,7 @@ let Part2Examples_Correct() =
         "London to Belfast = 518\n" +
         "Dublin to Belfast = 141"
 
-    Assert.Equal(982, snd (Day9.Solution input))
+    Assert.Equal(982, snd (Day09.Solution input))
 
 [<Fact>]
 let MyInput_Correct() =
@@ -33,18 +33,18 @@ let MyInput_Correct() =
         Path.GetFullPath(
             System.AppDomain.CurrentDomain.BaseDirectory
             + ConfigurationManager.AppSettings.Item("relativeInputDirectory")
-            + @"\day9.txt")
+            + @"\day09.txt")
     let input = File.ReadAllText(filePath)
 
-    Assert.Equal((117, 909), Day9.Solution input)
+    Assert.Equal((117, 909), Day09.Solution input)
 
 
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day9.Solution null |> ignore)
+        Day09.Solution null |> ignore)
 
 [<Fact>]
 let InputEmpty_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day9.Solution "" |> ignore)
+        Day09.Solution "" |> ignore)

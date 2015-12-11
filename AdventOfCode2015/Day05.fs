@@ -55,7 +55,7 @@
 // Personal day 5 goal: Use sequences extensively, write short code
 
 
-module DimitriVranken.AdventOfCode2015.Day5
+module DimitriVranken.AdventOfCode2015.Day05
 
 open System
 open System.Text.RegularExpressions 

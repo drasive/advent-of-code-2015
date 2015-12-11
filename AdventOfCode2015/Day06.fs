@@ -57,7 +57,7 @@
 // Personal day 6 goal: Use functional style
 
 
-module DimitriVranken.AdventOfCode2015.Day6
+module DimitriVranken.AdventOfCode2015.Day06
 
 open System
 open System.Text.RegularExpressions

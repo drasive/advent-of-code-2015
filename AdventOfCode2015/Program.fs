@@ -57,15 +57,15 @@ let main (argv : string[]) : int =
 
     let solution =
         match Options.Day with
-        |  1 -> Day1.FormattedSolution (Day1.Solution input)
-        |  2 -> Day2.FormattedSolution (Day2.Solution input)
-        |  3 -> Day3.FormattedSolution (Day3.Solution input)
-        |  4 -> Day4.FormattedSolution input (Day4.Solution input)
-        |  5 -> Day5.FormattedSolution (Day5.Solution input)
-        |  6 -> Day6.FormattedSolution (Day6.Solution input)
-        |  7 -> Day7.FormattedSolution (Day7.Solution input)
-        |  8 -> Day8.FormattedSolution (Day8.Solution input)
-        |  9 -> Day9.FormattedSolution (Day9.Solution input)
+        | 01 -> Day01.FormattedSolution (Day01.Solution input)
+        | 02 -> Day02.FormattedSolution (Day02.Solution input)
+        | 03 -> Day03.FormattedSolution (Day03.Solution input)
+        | 04 -> Day04.FormattedSolution input (Day04.Solution input)
+        | 05 -> Day05.FormattedSolution (Day05.Solution input)
+        | 06 -> Day06.FormattedSolution (Day06.Solution input)
+        | 07 -> Day07.FormattedSolution (Day07.Solution input)
+        | 08 -> Day08.FormattedSolution (Day08.Solution input)
+        | 09 -> Day09.FormattedSolution (Day09.Solution input)
         | 10 -> Day10.FormattedSolution (Day10.Solution input)
         | 11 -> Day11.FormattedSolution (Day11.Solution input)
         | _ -> "The solution for this puzzle is not yet implemented"

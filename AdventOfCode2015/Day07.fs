@@ -57,7 +57,7 @@
 // Personal day 7 goal: Use functional style
 
 
-module DimitriVranken.AdventOfCode2015.Day7
+module DimitriVranken.AdventOfCode2015.Day07
 
 open System
 open System.Collections.Generic

@@ -1,4 +1,4 @@
-﻿module DimitriVranken.AdventOfCode2015.Test.Day2Test
+﻿module DimitriVranken.AdventOfCode2015.Test.Day04Test
 
 open System
 open System.Configuration
@@ -11,15 +11,9 @@ open DimitriVranken.AdventOfCode2015
 
 [<Fact>]
 let Part1Examples_Correct() =
-    Assert.Equal(58, fst (Day2.Solution "2x3x4"))
-
-    Assert.Equal(43, fst (Day2.Solution "1x1x10"))
-
-[<Fact>]
-let Part2Examples_Correct() =
-    Assert.Equal(34, snd (Day2.Solution "2x3x4"))
-
-    Assert.Equal(14, snd (Day2.Solution "1x1x10"))
+    Assert.Equal(609043, fst (Day04.Solution "abcdef"))
+    
+    Assert.Equal(1048970, fst (Day04.Solution "pqrstuv"))
 
 [<Fact>]
 let MyInput_Correct() =
@@ -27,17 +21,17 @@ let MyInput_Correct() =
         Path.GetFullPath(
             System.AppDomain.CurrentDomain.BaseDirectory
             + ConfigurationManager.AppSettings.Item("relativeInputDirectory")
-            + @"\day2.txt")
+            + @"\day04.txt")
     let input = File.ReadAllText(filePath)
 
-    Assert.Equal((901, 1297), Day2.Solution input)
+    Assert.Equal((282749, 9962624), Day04.Solution input)
 
 
 [<Fact>]
 let InputNull_Exception() =
     Assert.ThrowsAny<ArgumentNullException>(fun() ->
-        Day2.Solution null |> ignore)
+        Day04.Solution null |> ignore)
 
 [<Fact>]
 let InputEmpty_Correct() =
-    Assert.Equal((0, 0), Day2.Solution "")
+    Assert.Equal((1803305, 20412333), Day04.Solution "")

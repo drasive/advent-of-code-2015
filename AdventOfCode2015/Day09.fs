@@ -49,7 +49,7 @@
 // but it should check all possible combinations O(n!).
 
 
-module DimitriVranken.AdventOfCode2015.Day9
+module DimitriVranken.AdventOfCode2015.Day09
 
 open System
 open System.Collections.Generic

@@ -42,7 +42,7 @@
 // Personal day 1 goal: Get F# application running, use command line parameters
 
 
-module DimitriVranken.AdventOfCode2015.Day1
+module DimitriVranken.AdventOfCode2015.Day01
 
 open System
 
