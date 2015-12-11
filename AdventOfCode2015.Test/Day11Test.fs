@@ -27,7 +27,7 @@ let MyInput_Correct() =
             + @"\day11.txt")
     let input = File.ReadAllText(filePath)
 
-    Assert.Equal(("hepxxyzz", ""), Day11.Solution input)
+    Assert.Equal(("hepxxyzz", "heqaabcc"), Day11.Solution input)
 
 
 [<Fact>]
