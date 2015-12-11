@@ -62,30 +62,30 @@ open System.Text.RegularExpressions
 
 
 let private IsStringNiceRuleSet1 (string : string) : bool =
-        // It contains at least three vowels
-        let containsVowel (str : string) : bool =
-            let vowels = ['a';'e';'i';'o';'u'] |> Set.ofList
+    // It contains at least three vowels
+    let containsVowel =
+        let vowels = ['a';'e';'i';'o';'u'] |> Set.ofList
             
-            str
-            |> Seq.filter (fun char -> vowels.Contains char)
-            |> Seq.length >= 3
+        string
+        |> Seq.filter (fun char -> vowels.Contains char)
+        |> Seq.length >= 3
 
-        // Does not contain the strings `ab`, `cd`, `pq`, or `xy`
-        let doesNotContainBadSequence (str : string) : bool =
-            let badSequences = ["ab";"cd";"pq";"xy"]
+    // Does not contain the strings `ab`, `cd`, `pq`, or `xy`
+    let doesNotContainBadSequence  =
+        let badSequences = ["ab";"cd";"pq";"xy"]
 
-            badSequences
-            |> Seq.forall(fun badSequence -> not (str.Contains badSequence))
+        badSequences
+        |> Seq.forall(fun badSequence -> not (string.Contains badSequence))
     
-        // Contains at least one letter that appears twice in a row
-        let containsLetterAppearingTwice (str : string) : bool =
-            str
-            |> Seq.pairwise
-            |> Seq.exists (fun (a, b) -> a = b)
+    // Contains at least one letter that appears twice in a row
+    let containsLetterAppearingTwice =
+        string
+        |> Seq.pairwise
+        |> Seq.exists (fun (a, b) -> a = b)
 
-        containsVowel string
-        && doesNotContainBadSequence string
-        && containsLetterAppearingTwice string
+    containsVowel
+    && doesNotContainBadSequence
+    && containsLetterAppearingTwice
 
 let private IsStringNiceRuleSet2 (string : string) : bool =
     // Contains a pair of any two letters that appears at least twice in the

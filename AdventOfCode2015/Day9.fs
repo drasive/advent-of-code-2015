@@ -44,6 +44,10 @@
 // 
 // Personal day 9 goal: See "Personal day 9 goal"
 
+// TODO: I think the current approach is O(nn*n-n) and not guaranteed to find an
+// optimal solution. The path always follows along the shortest/ longest path,
+// but it should check all possible combinations O(n!).
+
 
 module DimitriVranken.AdventOfCode2015.Day9
 

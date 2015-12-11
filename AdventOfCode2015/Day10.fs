@@ -23,7 +23,7 @@
 // 
 // Source: http://adventofcode.com/day/10, 2015-12-10
 // 
-// No specific personal day 10 goal: Use sequences extensively
+// Personal day 10 goal: Use sequences extensively
 
 
 module DimitriVranken.AdventOfCode2015.Day10

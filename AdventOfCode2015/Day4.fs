@@ -34,7 +34,6 @@ open System
 
 let private MD5Calculator = System.Security.Cryptography.MD5.Create()
 
-
 let private ComputeMD5Hash (input : string) : byte[] =
     let inputBytes = System.Text.Encoding.ASCII.GetBytes input
     MD5Calculator.ComputeHash inputBytes
