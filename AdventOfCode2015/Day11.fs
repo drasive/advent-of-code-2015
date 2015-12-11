@@ -38,6 +38,10 @@
 // Given Santa's current password (your puzzle input), what should his
 // _next password_ be?
 // 
+// ## Part Two
+// 
+// Santa's password expired again. What's the next one?
+// 
 // 
 // Source: http://adventofcode.com/day/11, 2015-12-11
 // 
@@ -111,5 +115,5 @@ let Solution (input : string) : (string * string) =
 
 let FormattedSolution (solution : (string * string)) : string =
     String.Format("Next password: {0}\n" +
-                  "Next-next password 2: {1}",
+                  "Next-next password: {1}",
                   fst solution, snd solution)
