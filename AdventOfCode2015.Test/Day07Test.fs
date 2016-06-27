@@ -21,7 +21,7 @@ let Part1Examples_Correct() =
         "NOT x -> h\n" +
         "NOT y -> i"
 
-    let solution = Day07.Solution input
+    let solution = Day07.SolutionCustom input
 
     // Assert
     Assert.Equal(8, solution.Count)
@@ -53,7 +53,7 @@ let MyInput_Correct() =
             + @"\day07.txt")
     let input = File.ReadAllText(filePath)
 
-    let solution = Day07.Solution input
+    let solution = Day07.SolutionCustom input
 
     Assert.Equal(0, Convert.ToInt32(solution.Item("a").Value))
 

@@ -92,9 +92,16 @@ type private NotWire(input : Wire) =
     inherit Wire()
     override this.Value = ~~~ input.Value
     
+let private OrderInstructions (instructions : seq<string>) : seq<string> =
+    instructions
+    |> Seq.sortByDescending (fun instruction ->
+        let pattern = "-> (.*)"
+        let matchedGroups = Regex.Match(instruction, pattern)
+        let a = matchedGroups.Groups.[1].Value
+        a)
+
 let private ParseInstruction (nodes : Dictionary<string, Wire>) (line : string)
     : (string * Wire) =
-    // TODO: What to do when input node doesn't exist yet?
     let node =
         if line.Contains("AND") || line.Contains("OR") then
             let pattern = @"^(.+) (AND|OR) (.+) ->"
@@ -138,21 +145,29 @@ let private ParseInstruction (nodes : Dictionary<string, Wire>) (line : string)
     (targetWire, node)
 
 
-let Solution (input : string) : (Dictionary<string, Wire>) =
+let SolutionCustom (input : string) : Dictionary<string, Wire> =
     if String.IsNullOrEmpty input then
         raise (ArgumentNullException "input")
 
     let nodes = new Dictionary<string, Wire>()
+        
+    let instructions =
+        input.Split('\n')
+        |> OrderInstructions
 
-    let lines = input.Split('\n')
-    lines
+    instructions
     |> Seq.iter (fun line ->
         nodes.Add(ParseInstruction nodes line))
     |> ignore
 
     nodes
 
-let FormattedSolution (solution : Dictionary<string, Wire>) : string =
+let Solution (input : string) : (int * int) =
+    let solutionA = (SolutionCustom input).Item "a"
+
+    (int solutionA.Value, 0)
+
+let FormattedSolution (solution : (int * int)) : string =
     String.Format("Wire a: {0}\n" +
                   "Wire b: {1}",
-                  solution.Item("a").Value, solution.Item("a").Value)
+                  fst solution, snd solution)
